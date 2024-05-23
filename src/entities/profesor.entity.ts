@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
+import { Propuesta } from './propuesta.entity';
 
 @Entity()
 export class Profesor {
@@ -16,4 +23,8 @@ export class Profesor {
 
   @Column({ type: 'int' })
   extension: number;
+
+  @OneToMany(() => Propuesta, (propuesta) => propuesta.profesor)
+  @JoinColumn()
+  propuesta: Propuesta;
 }
