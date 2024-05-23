@@ -2,29 +2,26 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  OneToMany,
+  OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { Propuesta } from './propuesta.entity';
+import { Proyecto } from '../proyecto/proyecto.entity';
 
 @Entity()
-export class Profesor {
+export class Estudiante {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @Column({ type: 'int' })
-  cedula: number;
 
   @Column({ type: 'varchar', length: 500 })
   nombre: string;
 
   @Column({ type: 'varchar', length: 500 })
-  grupoInvestigacion: string;
+  codigo: string;
 
   @Column({ type: 'int' })
-  extension: number;
+  creditosAprobados: number;
 
-  @OneToMany(() => Propuesta, (propuesta) => propuesta.profesor)
+  @OneToOne(() => Proyecto)
   @JoinColumn()
-  propuesta: Propuesta;
+  proyecto: Proyecto;
 }

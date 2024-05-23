@@ -6,8 +6,8 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { Profesor } from './profesor.entity';
-import { Proyecto } from './proyecto.entity';
+import { Profesor } from '../profesor/profesor.entity';
+import { Proyecto } from '../proyecto/proyecto.entity';
 
 @Entity()
 export class Propuesta {
