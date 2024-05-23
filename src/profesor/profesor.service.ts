@@ -36,9 +36,7 @@ export class ProfesorService {
       },
     });
     if (profesor.propuesta && profesor.propuesta.proyecto) {
-      throw new Error(
-        'No se puede eliminar un profesor con una propuesta que tiene un proyecto asociado',
-      );
+      throw new Error('No se puede eliminar');
     }
     return this.profesorRepository.delete(id);
   }
@@ -49,9 +47,7 @@ export class ProfesorService {
       relations: ['propuesta'],
     });
     if (profesor.propuesta && profesor.propuesta.proyecto) {
-      throw new Error(
-        'No se puede eliminar un profesor con una propuesta que tiene un proyecto asociado',
-      );
+      throw new Error('No se puede eliminar');
     }
     return this.profesorRepository.delete({ cedula });
   }
