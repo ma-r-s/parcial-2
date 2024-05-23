@@ -26,7 +26,9 @@ export class PropuestaService {
   }
 
   async findAllPropuesta() {
-    return this.propuestaRepository.find();
+    return this.propuestaRepository.find({
+      relations: ['profesor', 'estudiante', 'proyecto'],
+    });
   }
 
   async deletePropuesta(id: number) {
